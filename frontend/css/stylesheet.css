@@ -1,0 +1,108 @@
+ul li{
+    list-style: none;
+}
+
+header{
+    background: #000;
+    color: #fff;
+}
+header img{
+    width: 100%;
+    /* object-fit: cover; */
+}
+
+header h1{
+    text-align: center;
+    padding: 20px 0px 40px 0px;
+}
+
+section#flights{
+ text-align: center;
+}
+section#flights h2{
+ margin-bottom: 50px;   
+}
+
+ div.flight-design {
+    background-color: #75FB8D;
+    width: 800px;
+    margin: auto;
+    border-radius: 30px;
+    padding: 10px;
+    text-align: left;
+    padding-left: 40px;
+
+}
+
+div.flight-design div p {
+   display: inline-block;
+   padding-right: 10px;
+}
+
+div.flight-design div button {
+    width: 100px;
+    margin-left:500px;
+    background-color: #000;
+    color: #fff;
+    padding: 5px 0px;
+    font-weight: bold;
+ }
+
+section#book_seat {
+    padding-top: 50px;
+    padding-bottom: 100px;
+    position: relative;
+    width: 1200px;
+    margin: auto;
+}
+
+#seats-layout{
+    width: 140px ;
+    /* border: 1px solid #000; */
+    position: absolute;
+    z-index: 2;
+    left: 528px;
+    top: 225px;
+
+}
+
+div.seat-design{
+    width: 30px;
+    padding: 10px;;
+    background-color: #75FB8D;
+    color: #000;
+    font-weight: bold ;
+    text-align: center;
+    margin: 10px;
+    float: left;
+}
+div.seat-taken{
+    background-color: #CF2E25;
+}
+.clearfix{
+    clear:left;
+}
+
+
+#btn-seat-confirm, #btn-ticket-confirm{
+    width: 300px;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 25px;
+    font-weight: bold;
+}
+
+section#book_seat #modal {
+    width: 700px;
+    background-color: #75FB8D;
+    border-radius: 30px;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top:0;
+}
+form{
+   
+    padding: 50px 0px;
+    
+}

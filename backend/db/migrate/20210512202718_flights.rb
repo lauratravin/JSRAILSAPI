@@ -6,6 +6,7 @@ class Flights < ActiveRecord::Migration[6.1]
       t.string  :aircraft
       t.string  :planet 
       t.date    :date 
+      t.integer :seats_num
       t.timestamps
     end
   end

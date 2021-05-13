@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_12_210822) do
+ActiveRecord::Schema.define(version: 2021_05_13_215847) do
 
   create_table "flights", force: :cascade do |t|
     t.string "code"
@@ -18,16 +18,18 @@ ActiveRecord::Schema.define(version: 2021_05_12_210822) do
     t.string "aircraft"
     t.string "planet"
     t.date "date"
+    t.integer "seats_num"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "seats"
   end
 
-  create_table "passengers", force: :cascade do |t|
-    t.integer "flight_id"
+# Could not dump table "seats" because of following StandardError
+#   Unknown type '' for column 'ticket_id'
+
+  create_table "tickets", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.date "dob"
+    t.string "passport"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

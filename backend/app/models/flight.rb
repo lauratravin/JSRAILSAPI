@@ -1,3 +1,4 @@
 class Flight < ApplicationRecord
-    has_many :passengers
+    has_many :tickets, through: :seats
+    has_many :seats
 end

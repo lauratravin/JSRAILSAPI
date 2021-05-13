@@ -1,0 +1,6 @@
+class SeatsController < ApplicationController
+
+    
+     
+
+end

@@ -5650,3 +5650,832 @@ Migrating to Addfield (20210512210822)
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
   [1m[36mFlight Create (0.2ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "created_at", "updated_at", "seats") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2045], ["created_at", "2021-05-12 22:14:05.580209"], ["updated_at", "2021-05-12 22:14:05.580209"], ["seats", 4]]
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2021-05-12 18:37:53 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Library/Ruby/Gems/2.6.0/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Library/Ruby/Gems/2.6.0/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.2ms | Allocations: 478)
+Completed 200 OK in 27ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 4129)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-05-12 18:37:53 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/flights" for 127.0.0.1 at 2021-05-12 18:37:58 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/flights"):
+  
+Started GET "/flights" for 127.0.0.1 at 2021-05-12 18:38:41 -0400
+Processing by FlightsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+  [1m[36mFlight Load (0.4ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+Completed 200 OK in 34ms (Views: 24.7ms | ActiveRecord: 1.3ms | Allocations: 8596)
+
+
+Started GET "/flights/1" for 127.0.0.1 at 2021-05-12 18:39:08 -0400
+Processing by FlightsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:9:in `show'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms | Allocations: 1372)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/flights_controller.rb:10:in `show'
+Started GET "/flights/show/1" for 127.0.0.1 at 2021-05-12 18:39:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/flights/show/1"):
+  
+Started GET "/flights/2" for 127.0.0.1 at 2021-05-12 18:39:36 -0400
+Processing by FlightsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:9:in `show'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.1ms | Allocations: 920)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/flights_controller.rb:10:in `show'
+Started GET "/flights" for 127.0.0.1 at 2021-05-12 18:44:20 -0400
+Processing by FlightsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 1.1ms | Allocations: 7484)
+
+
+Started GET "/flights/16" for 127.0.0.1 at 2021-05-12 18:44:32 -0400
+Processing by FlightsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:9:in `show'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 2444)
+
+
+  
+NoMethodError (undefined method `name' for #<Flight:0x00007fc46be50cb8>):
+  
+app/controllers/flights_controller.rb:10:in `show'
+Started GET "/flights/16" for 127.0.0.1 at 2021-05-12 18:44:48 -0400
+Processing by FlightsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/flights_controller.rb:9:in `show'
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:9:in `show'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 6775)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Seats (20210512232509)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Seats (20210512232509)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "seats" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "flight_id" integer, "seat_code" varchar, "passenger_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210512232509"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to Removecolumn (20210512232533)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Removecolumn (20210512232533)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apassengers" ("id" integer NOT NULL PRIMARY KEY, "flight_id" integer DEFAULT NULL, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "dob" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "apassengers" ("id","flight_id","first_name","last_name","dob","created_at","updated_at")
+                     SELECT "id","flight_id","first_name","last_name","dob","created_at","updated_at" FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "passengers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passengers" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "dob" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "passengers" ("id","first_name","last_name","dob","created_at","updated_at")
+                     SELECT "id","first_name","last_name","dob","created_at","updated_at" FROM "apassengers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apassengers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210512232533"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.3ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (1.0ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.0ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.9ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.7ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.6ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.9ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.8ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.8ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.8ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["created_at", "2021-05-12 23:46:02.611403"], ["updated_at", "2021-05-12 23:46:02.611403"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["code", "AG4YI"], ["company", "NASA"], ["aircraft", "X-2"], ["planet", "Mars"], ["date", 2035], ["created_at", "2021-05-12 23:46:02.614996"], ["updated_at", "2021-05-12 23:46:02.614996"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.2ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "SpaceX"], ["aircraft", "Mars Polar"], ["planet", "Mars"], ["date", 2030], ["created_at", "2021-05-12 23:46:02.618255"], ["updated_at", "2021-05-12 23:46:02.618255"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2045], ["created_at", "2021-05-12 23:46:02.621130"], ["updated_at", "2021-05-12 23:46:02.621130"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["created_at", "2021-05-12 23:47:23.189487"], ["updated_at", "2021-05-12 23:47:23.189487"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["code", "AG4YI"], ["company", "NASA"], ["aircraft", "X-2"], ["planet", "Mars"], ["date", 2035], ["created_at", "2021-05-12 23:47:23.193556"], ["updated_at", "2021-05-12 23:47:23.193556"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "SpaceX"], ["aircraft", "Mars Polar"], ["planet", "Mars"], ["date", 2030], ["created_at", "2021-05-12 23:47:23.196964"], ["updated_at", "2021-05-12 23:47:23.196964"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2045], ["created_at", "2021-05-12 23:47:23.200100"], ["updated_at", "2021-05-12 23:47:23.200100"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.0ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.8ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.6ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.7ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.9ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (5000.8ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.3ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (1.0ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Flights (20210512202718)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "flights" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "code" varchar, "company" varchar, "aircraft" varchar, "planet" varchar, "date" date, "seats" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210512202718"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to Passengers (20210512202729)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "passengers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "flight_id" integer, "first_name" varchar, "last_name" varchar, "dob" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210512202729"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to Addfield (20210512210822)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "flights" ADD "seats" integer[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Removecolumn (20210512232533)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apassengers" ("id" integer NOT NULL PRIMARY KEY, "flight_id" integer DEFAULT NULL, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "dob" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "apassengers" ("id","flight_id","first_name","last_name","dob","created_at","updated_at")
+                     SELECT "id","flight_id","first_name","last_name","dob","created_at","updated_at" FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "passengers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passengers" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "dob" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "passengers" ("id","first_name","last_name","dob","created_at","updated_at")
+                     SELECT "id","first_name","last_name","dob","created_at","updated_at" FROM "apassengers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apassengers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210512232533"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to Seats (20210513000204)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Seats (20210513000204)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "seats" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "flight_id" integer, "seat_code" integer, "passengers_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210513000204"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-05-13 00:03:30.425002"], ["updated_at", "2021-05-13 00:03:30.425002"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.6ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.8ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.7ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.6ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.0ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.9ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.0ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.9ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.9ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("code", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["code", "xxx"], ["created_at", "2021-05-13 00:11:04.272682"], ["updated_at", "2021-05-13 00:11:04.272682"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mFlight Load (0.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights" ORDER BY "flights"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.2ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 5], ["created_at", "2021-05-13 00:15:23.591965"], ["updated_at", "2021-05-13 00:15:23.591965"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "AG4YI"], ["company", "NASA"], ["aircraft", "X-2"], ["planet", "Mars"], ["date", 2035], ["seats_num", 5], ["created_at", "2021-05-13 00:15:23.596135"], ["updated_at", "2021-05-13 00:15:23.596135"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "SpaceX"], ["aircraft", "Mars Polar"], ["planet", "Mars"], ["date", 2030], ["seats_num", 3], ["created_at", "2021-05-13 00:15:23.599676"], ["updated_at", "2021-05-13 00:15:23.599676"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2045], ["seats_num", 4], ["created_at", "2021-05-13 00:15:23.603280"], ["updated_at", "2021-05-13 00:15:23.603280"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.3ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (2.2ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 5], ["created_at", "2021-05-13 00:19:33.446471"], ["updated_at", "2021-05-13 00:19:33.446471"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "AG4YI"], ["company", "NASA"], ["aircraft", "X-2"], ["planet", "Mars"], ["date", 2035], ["seats_num", 5], ["created_at", "2021-05-13 00:19:33.452973"], ["updated_at", "2021-05-13 00:19:33.452973"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "SpaceX"], ["aircraft", "Mars Polar"], ["planet", "Mars"], ["date", 2030], ["seats_num", 3], ["created_at", "2021-05-13 00:19:33.456540"], ["updated_at", "2021-05-13 00:19:33.456540"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2045], ["seats_num", 4], ["created_at", "2021-05-13 00:19:33.460199"], ["updated_at", "2021-05-13 00:19:33.460199"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.8ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.6ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.9ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 5], ["created_at", "2021-05-13 00:23:13.292536"], ["updated_at", "2021-05-13 00:23:13.292536"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "AG4YI"], ["company", "NASA"], ["aircraft", "X-2"], ["planet", "Mars"], ["date", 2035], ["seats_num", 5], ["created_at", "2021-05-13 00:23:17.820874"], ["updated_at", "2021-05-13 00:23:17.820874"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "SpaceX"], ["aircraft", "Mars Polar"], ["planet", "Mars"], ["date", 2030], ["seats_num", 3], ["created_at", "2021-05-13 00:23:31.698079"], ["updated_at", "2021-05-13 00:23:31.698079"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2045], ["seats_num", 4], ["created_at", "2021-05-13 00:23:35.747808"], ["updated_at", "2021-05-13 00:23:35.747808"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.0ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 5], ["created_at", "2021-05-13 00:23:42.749133"], ["updated_at", "2021-05-13 00:23:42.749133"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.2ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "AG4YI"], ["company", "NASA"], ["aircraft", "X-2"], ["planet", "Mars"], ["date", 2035], ["seats_num", 5], ["created_at", "2021-05-13 00:23:42.759788"], ["updated_at", "2021-05-13 00:23:42.759788"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.2ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "SpaceX"], ["aircraft", "Mars Polar"], ["planet", "Mars"], ["date", 2030], ["seats_num", 3], ["created_at", "2021-05-13 00:23:42.763549"], ["updated_at", "2021-05-13 00:23:42.763549"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2045], ["seats_num", 4], ["created_at", "2021-05-13 00:23:42.768136"], ["updated_at", "2021-05-13 00:23:42.768136"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.0ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 1], ["created_at", "2021-05-13 00:24:37.547761"], ["updated_at", "2021-05-13 00:24:37.547761"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "AG4YI"], ["company", "NASA"], ["aircraft", "X-2"], ["planet", "Mars"], ["date", 2035], ["seats_num", 1], ["created_at", "2021-05-13 00:26:39.533709"], ["updated_at", "2021-05-13 00:26:39.533709"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "SpaceX"], ["aircraft", "Mars Polar"], ["planet", "Mars"], ["date", 2030], ["seats_num", 1], ["created_at", "2021-05-13 00:27:18.084562"], ["updated_at", "2021-05-13 00:27:18.084562"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.4ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2045], ["seats_num", 1], ["created_at", "2021-05-13 00:27:19.210145"], ["updated_at", "2021-05-13 00:27:19.210145"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.0ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 1], ["created_at", "2021-05-13 00:27:54.383294"], ["updated_at", "2021-05-13 00:27:54.383294"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.9ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 1], ["created_at", "2021-05-13 00:28:05.068071"], ["updated_at", "2021-05-13 00:28:05.068071"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.6ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.2ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 1], ["created_at", "2021-05-13 00:28:37.359987"], ["updated_at", "2021-05-13 00:28:37.359987"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.0ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.2ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 1], ["created_at", "2021-05-13 00:29:20.780278"], ["updated_at", "2021-05-13 00:29:20.780278"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.9ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 1], ["created_at", "2021-05-13 00:29:32.656654"], ["updated_at", "2021-05-13 00:29:32.656654"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassenger Create (0.2ms)[0m  [1m[32mINSERT INTO "passengers" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2021-05-13 00:29:32.667656"], ["updated_at", "2021-05-13 00:29:32.667656"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.8ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.7ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 1], ["created_at", "2021-05-13 00:32:38.595999"], ["updated_at", "2021-05-13 00:32:38.595999"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.0ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.9ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 1], ["created_at", "2021-05-13 00:33:01.095796"], ["updated_at", "2021-05-13 00:33:01.095796"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "AG4YI"], ["company", "NASA"], ["aircraft", "X-2"], ["planet", "Mars"], ["date", 2035], ["seats_num", 1], ["created_at", "2021-05-13 00:33:01.104941"], ["updated_at", "2021-05-13 00:33:01.104941"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "SpaceX"], ["aircraft", "Mars Polar"], ["planet", "Mars"], ["date", 2030], ["seats_num", 1], ["created_at", "2021-05-13 00:33:01.108334"], ["updated_at", "2021-05-13 00:33:01.108334"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.2ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2045], ["seats_num", 1], ["created_at", "2021-05-13 00:33:01.111374"], ["updated_at", "2021-05-13 00:33:01.111374"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassenger Load (0.1ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" WHERE "passengers"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.8ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.8ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPassenger Create (0.2ms)[0m  [1m[32mINSERT INTO "passengers" ("first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["first_name", "John"], ["last_name", "Doe"], ["created_at", "2021-05-13 01:18:11.629561"], ["updated_at", "2021-05-13 01:18:11.629561"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPassenger Load (0.1ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.7ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 1], ["created_at", "2021-05-13 01:18:11.637297"], ["updated_at", "2021-05-13 01:18:11.637297"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSeat Create (0.8ms)[0m  [1m[32mINSERT INTO "seats" ("flight_id", "seat_code", "passenger_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["flight_id", 32], ["seat_code", 1], ["passenger_id", 1], ["created_at", "2021-05-13 01:18:11.648351"], ["updated_at", "2021-05-13 01:18:11.648351"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "AG4YI"], ["company", "NASA"], ["aircraft", "X-2"], ["planet", "Mars"], ["date", 2035], ["seats_num", 1], ["created_at", "2021-05-13 01:18:11.652336"], ["updated_at", "2021-05-13 01:18:11.652336"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("flight_id", "seat_code", "passenger_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["flight_id", 33], ["seat_code", 1], ["passenger_id", 1], ["created_at", "2021-05-13 01:18:11.655365"], ["updated_at", "2021-05-13 01:18:11.655365"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "SpaceX"], ["aircraft", "Mars Polar"], ["planet", "Mars"], ["date", 2030], ["seats_num", 1], ["created_at", "2021-05-13 01:18:11.658295"], ["updated_at", "2021-05-13 01:18:11.658295"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSeat Create (0.3ms)[0m  [1m[32mINSERT INTO "seats" ("flight_id", "seat_code", "passenger_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["flight_id", 34], ["seat_code", 1], ["passenger_id", 1], ["created_at", "2021-05-13 01:18:11.661212"], ["updated_at", "2021-05-13 01:18:11.661212"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.2ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2045], ["seats_num", 1], ["created_at", "2021-05-13 01:18:11.664078"], ["updated_at", "2021-05-13 01:18:11.664078"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSeat Create (0.3ms)[0m  [1m[32mINSERT INTO "seats" ("flight_id", "seat_code", "passenger_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["flight_id", 35], ["seat_code", 1], ["passenger_id", 1], ["created_at", "2021-05-13 01:18:11.667049"], ["updated_at", "2021-05-13 01:18:11.667049"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/flights/16" for 127.0.0.1 at 2021-05-12 21:37:24 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FlightsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/flights_controller.rb:9:in `show'
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.4ms | Allocations: 6315)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/flights_controller.rb:10:in `show'
+Started GET "/flights" for 127.0.0.1 at 2021-05-12 21:37:29 -0400
+Processing by FlightsController#index as HTML
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 34]]
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 35]]
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 1.4ms | Allocations: 15209)
+
+
+Started GET "/flights" for 127.0.0.1 at 2021-05-12 21:37:54 -0400
+Processing by FlightsController#index as HTML
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 34]]
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 35]]
+  ↳ app/controllers/flights_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.5ms | Allocations: 4439)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.6ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.4ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.9ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[36mPassenger Load (0.1ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" ORDER BY "passengers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2036], ["seats_num", 1], ["created_at", "2021-05-13 01:55:17.054808"], ["updated_at", "2021-05-13 01:55:17.054808"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.2ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "AG4YI"], ["company", "NASA"], ["aircraft", "X-2"], ["planet", "Mars"], ["date", 2035], ["seats_num", 1], ["created_at", "2021-05-13 01:55:17.061817"], ["updated_at", "2021-05-13 01:55:17.061817"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "SpaceX"], ["aircraft", "Mars Polar"], ["planet", "Mars"], ["date", 2030], ["seats_num", 1], ["created_at", "2021-05-13 01:55:17.065019"], ["updated_at", "2021-05-13 01:55:17.065019"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2045], ["seats_num", 1], ["created_at", "2021-05-13 01:55:17.068207"], ["updated_at", "2021-05-13 01:55:17.068207"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to PassengerPassport (20210513213837)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to PassengerPassport (20210513213837)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apassengers" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "passport" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "apassengers" ("id","first_name","last_name","passport","created_at","updated_at")
+                     SELECT "id","first_name","last_name","dob","created_at","updated_at" FROM "passengers"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "passengers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passengers" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "passport" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "passengers" ("id","first_name","last_name","passport","created_at","updated_at")
+                     SELECT "id","first_name","last_name","passport","created_at","updated_at" FROM "apassengers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apassengers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to PassengerPassport (20210513213837)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apassengers" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "passport" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "apassengers" ("id","first_name","last_name","passport","created_at","updated_at")
+                     SELECT "id","first_name","last_name","dob","created_at","updated_at" FROM "passengers"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "passengers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passengers" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "passport" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "passengers" ("id","first_name","last_name","passport","created_at","updated_at")
+                     SELECT "id","first_name","last_name","passport","created_at","updated_at" FROM "apassengers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apassengers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "apassengers" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "passport" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "apassengers" ("id","first_name","last_name","passport","created_at","updated_at")
+                     SELECT "id","first_name","last_name","passport","created_at","updated_at" FROM "passengers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "passengers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "passengers" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "passport" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "passengers" ("id","first_name","last_name","passport","created_at","updated_at")
+                     SELECT "id","first_name","last_name","passport","created_at","updated_at" FROM "apassengers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "apassengers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210513213837"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RenameTable (20210513214724)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "passengers" RENAME TO "tickets"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210513214724"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (1.0ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.2ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.7ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mPassenger Destroy (0.2ms)[0m  [1m[31mDELETE FROM "passengers"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.7ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.7ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.8ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.9ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mTicket Destroy (0.7ms)[0m  [1m[31mDELETE FROM "tickets"[0m
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" ORDER BY "tickets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2035], ["seats_num", 6], ["created_at", "2021-05-13 21:54:09.023659"], ["updated_at", "2021-05-13 21:54:09.023659"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangenameTicket (20210513215630)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aseats" ("id" integer NOT NULL PRIMARY KEY, "flight_id" integer DEFAULT NULL, "seat_code" integer DEFAULT NULL, "passenger_id" integer DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aseats" ("id","flight_id","seat_code","passenger_id","created_at","updated_at")
+                     SELECT "id","flight_id","seat_code","passenger_id","created_at","updated_at" FROM "seats"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "seats"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "seats" ("id" integer NOT NULL PRIMARY KEY, "flight_id" integer DEFAULT NULL, "seat_code" integer DEFAULT NULL, "passenger_id" ticket_id DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "seats" ("id","flight_id","seat_code","passenger_id","created_at","updated_at")
+                     SELECT "id","flight_id","seat_code","passenger_id","created_at","updated_at" FROM "aseats"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aseats"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210513215630"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangenameTicket2 (20210513215847)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aseats" ("id" integer NOT NULL PRIMARY KEY, "flight_id" integer DEFAULT NULL, "seat_code" integer DEFAULT NULL, "ticket_id"  DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aseats" ("id","flight_id","seat_code","ticket_id","created_at","updated_at")
+                     SELECT "id","flight_id","seat_code","passenger_id","created_at","updated_at" FROM "seats"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "seats"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "seats" ("id" integer NOT NULL PRIMARY KEY, "flight_id" integer DEFAULT NULL, "seat_code" integer DEFAULT NULL, "ticket_id"  DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "seats" ("id","flight_id","seat_code","ticket_id","created_at","updated_at")
+                     SELECT "id","flight_id","seat_code","ticket_id","created_at","updated_at" FROM "aseats"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aseats"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210513215847"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFlight Destroy (0.7ms)[0m  [1m[31mDELETE FROM "flights"[0m
+  [1m[36mTicket Destroy (0.6ms)[0m  [1m[31mDELETE FROM "tickets"[0m
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" ORDER BY "tickets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "C64YI"], ["company", "NASA"], ["aircraft", "Curiosity"], ["planet", "Mars"], ["date", 2035], ["seats_num", 6], ["created_at", "2021-05-13 21:59:14.643801"], ["updated_at", "2021-05-13 21:59:14.643801"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.5ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "AG4YI"], ["company", "NASA"], ["aircraft", "X-2"], ["planet", "Jupiter"], ["date", 2050], ["seats_num", 3], ["created_at", "2021-05-13 21:59:14.654934"], ["updated_at", "2021-05-13 21:59:14.654934"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "SpaceX"], ["aircraft", "Mars Polar"], ["planet", "Mars"], ["date", 2030], ["seats_num", 8], ["created_at", "2021-05-13 21:59:14.659207"], ["updated_at", "2021-05-13 21:59:14.659207"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFlight Create (0.3ms)[0m  [1m[32mINSERT INTO "flights" ("code", "company", "aircraft", "planet", "date", "seats_num", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["code", "B738T"], ["company", "V22X"], ["aircraft", "X234"], ["planet", "Venus"], ["date", 2040], ["seats_num", 4], ["created_at", "2021-05-13 21:59:14.663470"], ["updated_at", "2021-05-13 21:59:14.663470"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/stylesheet.css">
+    </head>
+    <body>
+        <header>
+            <img src="assests/header.jpg" >
+            <h1>WELCOME SPACE TRAVELLERS TO PLANET EXPRESS! THE BEST SERVICE IN THE GALAXY!!!</h1>
+          
+        </header>
+        <main>
+            <section id="flights">
+
+                <h2>Choose you favorite planet and aircraft to explore the universe.</h2>
+
+                
+                <ul id="flight_list">
+                      <li>
+                          <div flight-id='C64YI' class="flight-design">
+                              <div>
+                                    <p>Destination:<b> Mars</b></p>
+                                    <p>Departure year: <b>2036</b></p>
+                                    <p>Aircraft Name: <b>Curiosity</b></p>
+
+                              </div>
+                              <div>
+                                    <p>Approved by: NASA</p>
+                                    <button btn-id='C64YI' >Book a seat</button>
+                              </div>
+
+                          </div>
+                      </li>
+                </ul>    
+
+            <section>
+            <section id="book_seat">
+                <h2>Available seats, choose your seat and complete your information to generate the ticket.</h2>
+                <div>
+                     <img src="assests/aircraft.png" width="500px">
+                </div>    
+                <div id="seats-layout">
+                     
+                        <div data-id="1" class="seat-design">01</div>
+                        <div data-id="2" class="seat-design">02</div>
+                        <div data-id="3" class="seat-design">03</div>
+                        <div data-id="4" class="seat-design">04</div>
+                        <div data-id="5" class="seat-design ">05</div>
+                        <div data-id="6" class="seat-design">06</div>
+                        <div data-id="7" class="seat-design">07</div>
+                        <div data-id="8" class="seat-design ">08</div>
+                        <div class="clearfix"></div>
+                </div>   
+                <button id="btn-seat-confirm">Confirm Seat</button>
+                <div id="modal">
+                    <form action="/action_page.php">
+                        <label for="fname">First name:</label><br>
+                        <input type="text" id="first_name" name="fname" value="John"><br>
+                        <label for="lname">Last name:</label><br>
+                        <input type="text" id="last_name" name="lname" value="Doe"><br><br>
+                        <button type="submit" id="btn-ticket-confirm">Get My Ticket</button>
+                      </form> 
+                      <div></div>
+                </div> 
+                </section>    
+        <main>    
+        <footer>
+        </footer>
+        
+        <script src="index.js" async defer></script>
+        <script src="flights.js" async defer></script>
+        <script src="tickets.js" async defer></script>
+    </body>
+</html>
