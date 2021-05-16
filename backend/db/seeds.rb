@@ -7,19 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
  
 Flight.delete_all
-Ticket.delete_all
+Passenger.delete_all
+Seat.delete_all
  
 flight_data = [
- ['C64YI', 'NASA','Curiosity', 'Mars',2035, 6],
- ['AG4YI', 'NASA','X-2', 'Jupiter',2050, 3],
- ['B738T', 'SpaceX','Mars Polar', 'Mars',2030, 8],
- ['B738T', 'V22X','X234', 'Venus', 2040, 4]
+ ['C64YI', 'NASA','Curiosity', 'Mars',2035, 4],
+ ['AG4YI', 'NASA','X-2', 'Jupiter',2050, 5],
+ ['B738T', 'SpaceX','Mars Polar', 'Mars',2030, 7],
+ ['B738T', 'V22X','X234', 'Venus', 2040, 8]
 ]
  
 fight_collection = []
 
-Ticket.create(first_name: "John", last_name: "Doe", passport: "N2341")
-@p = Ticket.first
+
+
+Passenger.create(firstname: "John", lastname: "Doe", passport: "N2341")
+@p = Passenger.new
 
 flight_data.each do |f|
  
@@ -32,7 +35,7 @@ flight_data.each do |f|
              
               @seat = Seat.new
               @seat.flight = @flight
-              @seat.ticket = @p
+              @seat.passenger = @p
               @seat.seat_code =  c
              
               @seat.save
@@ -44,13 +47,4 @@ flight_data.each do |f|
 end
 
 
-# trainer_collection.each do |trainer|
-#  team_size = (SecureRandom.random_number(6) + 1).floor
-
-#  (1..team_size).each do |poke|
-#    name = Faker::Name.first_name
-#    species = Faker::Games::Pokemon.name
-#    Pokemon.create(nickname: name, species: species, trainer_id: trainer.id)
-#  end
-# end
 

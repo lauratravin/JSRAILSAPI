@@ -1,17 +1,17 @@
-class TicketsController < ApplicationController
+class PassengersController < ApplicationController
 
-    def index
-        # pokemons = Pokemon.all
-        # render json: PokemonSerializer.new(pokemons)
+    def show
+        passenger = Passenger.find_by_id(10)
+         render json: passenger
       end
      
     def create
 
-        @ticket = Ticket.new
-        @ticket.first_name= params[:first_name]
-        @ticket.last_name= params[:last_name]
+        @passenger_id = Passenger.new
+        @passenger.firstname= params[:firstname]
+        @passenger.lastname= params[:lastname]
         Seat.create(flight_id: params[:flight_id], seat_code: params[:seat_code] , passenger_id: @ticket_id)       
-        @ticket.save
+        @passenger.save
       # render json: PokemonSerializer.new(pokemon)
     end 
 

@@ -22,7 +22,9 @@ section#flights{
 section#flights h2{
  margin-bottom: 50px;   
 }
-
+section#flights ul li{
+    margin-bottom: 10px;
+}
  div.flight-design {
     background-color: #75FB8D;
     width: 800px;
@@ -31,21 +33,24 @@ section#flights h2{
     padding: 10px;
     text-align: left;
     padding-left: 40px;
+    border: solid 3px #000;
 
 }
 
 div.flight-design div p {
+    width: 200px;
    display: inline-block;
    padding-right: 10px;
 }
 
 div.flight-design div button {
     width: 100px;
-    margin-left:500px;
+    margin-left:450px;
     background-color: #000;
     color: #fff;
     padding: 5px 0px;
     font-weight: bold;
+    
  }
 
 section#book_seat {
@@ -66,7 +71,7 @@ section#book_seat {
 
 }
 
-div.seat-design{
+.seatdesign{
     width: 30px;
     padding: 10px;;
     background-color: #75FB8D;
@@ -91,18 +96,50 @@ div.seat-taken{
     padding: 15px 25px;
     font-weight: bold;
 }
+#btn-ticket-confirm{
+    margin-top: 10px;
+}
 
 section#book_seat #modal {
-    width: 700px;
+    width: 800px;
     background-color: #75FB8D;
+    border: 3px solid #000;
     border-radius: 30px;
     position: fixed;
     z-index: 3;
-    left: 0;
-    top:0;
+    left: 25%;
+    top:25%;
+}
+div#modal img{
+    width: 300px;
+    position: absolute;
+    right: 50px;
+    bottom: 0px;
+}
+#modal #close{
+    width: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 3px;
+    margin-left: 30px;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #000;
+
 }
 form{
-   
+    width: 400px;
     padding: 50px 0px;
+    float: left;
     
 }
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+/* .red{
+    background-color: red;
+} */
