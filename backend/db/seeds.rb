@@ -35,7 +35,7 @@ flight_data.each do |f|
              
               @seat = Seat.new
               @seat.flight = @flight
-              @seat.passenger = @p
+            #   @seat.passenger = null
               @seat.seat_code =  c
              
               @seat.save

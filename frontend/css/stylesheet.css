@@ -136,10 +136,22 @@ form{
 .show{
     display: block;
 }
+form #search{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    padding: 5px 0px;
+    width: 60px;
+    background-color: #000;
+    color: #fff;
+    display: inline-block;
+}
+form label{
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 .hide{
     display: none;
 }
-/* .red{
+.red{
     background-color: red;
-} */
+}

@@ -8,8 +8,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/stylesheet.css">
-        <script src="src/flights.js" ></script>
-        <script src="src/index.js" ></script>
+       
 
     </head>
     <body>
@@ -62,24 +61,30 @@
                 <button id="btn-seat-confirm">Confirm Seat</button>
                 <div id="modal" class="hide">
                     <div id="close">x</div>
-                    <form action="/action_page.php">
-                        <label for="fname">First name:</label><br>
-                        <input type="text" id="firstname" name="fname" mandatory><br><br>
-                        <label for="lname">Last name:</label><br>
-                        <input type="text" id="lastname" name="lname" mandatory><br><br>
-                        <label for="passport">Passport:</label><br>
-                        <input type="text" id="passport" name="passport"  mandatory><br><br>
-                        <button type="submit" id="btn-ticket-confirm">Get My Ticket</button>
-                      </form> 
                     
+                    <form>
+                        <label for="passport">Passport</label>
+                        <input type="text" id="passport" name="passport"  mandatory placeholder="Search or create">  
+                        <button id="search" >Search</button><br>   <br>  
+                        <label for="fname">First name</label>
+                        <input type="text" id="firstname" name="fname" mandatory><br><br>
+                        <label for="lname">Last name</label>
+                        <input type="text" id="lastname" name="lname" mandatory><br><br>
+                      
+                        <button  id="btn-ticket-confirm">Get My Ticket</button>
+                      </form> 
+                      <div id="message"></div>
                       <div><img src="assests/modal.png"></div>
                 </div> 
                 </section>    
         <main>    
         <footer>
         </footer>
-        
-        <script src="src/passengers.js" async defer></script>
+        <script src="src/flights.js" ></script>
+        <script src="src/passengers.js" ></script>
+        <script src="src/seat.js" ></script>
+        <script src="src/index.js" ></script>
+       
        
 
     </body>
