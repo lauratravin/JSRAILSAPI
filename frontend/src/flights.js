@@ -114,8 +114,8 @@ class Flight{
                     seatCode.className = 'seatdesign red'
                 } else {
                     seatCode.addEventListener('click', (e) => {
-                        Flight.seatChoosen(seatCode) 
                         
+                        this.seatChoosen(seatCode)                       
                         Flight.buildSeat.seat_code = f.seat_code
                         Flight.buildSeat.seat_id = f.id
 
@@ -124,7 +124,7 @@ class Flight{
             }
    }
  //this method show the modal for user search or creation and call the search method in Passenger
-   static seatChoosen(target){
+   seatChoosen(target){
       const modal = document.getElementById('modal')
       const close =  document.getElementById('close')
       const search = document.getElementById('search')

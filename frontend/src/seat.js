@@ -58,10 +58,9 @@ static create(){
     // console.log(seat_id)
       let seat = document.querySelector('[seatid = "'+seat_id+'"]')
        console.log(seat)
-      seat.className= 'seatdesign red'
-      seat.removeEventListener('click', (e) => { e.preventDefault()
-      Seat.create()
-    })
+       seat.className= 'seatdesign red'
+       seat.replaceWith(seat.cloneNode(true))  //to remove event listener but preserve the original element.
+         
    
  }
 
