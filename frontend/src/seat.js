@@ -1,48 +1,68 @@
 class Seat{
 
 static create(){
-    const passport = document.getElementById('passport')
+    const str = document.getElementById('passport')   
+    const passport= str.value.toUpperCase()
     const firstname = document.getElementById('firstname')
     const lastname =  document.getElementById('lastname')
 
     if (Passenger.notFound){ 
-        console.log("not found")
-            
+      
+            console.log(passport)
 
-            if (passport.value && firstname.value && lastname.value){
+            if (passport && firstname.value && lastname.value){
 
-               Passenger.createPassenger(firstname.value, lastname.value, passport.value, Flight.buildSeat.flight_id, Flight.buildSeat.seat_code )
+              Passenger.createPassenger(firstname.value, lastname.value, passport.value, Flight.buildSeat.flight_id, Flight.buildSeat.seat_code )
             } else {
                  message.textContent = "Complete all the fields"
-                console.log("send mesage that data is empty")
             }
-       //create passenger
+     
     } else {
         
-          Seat.assingSeat( Passenger.currentPassenger.id, Flight.buildSeat.flight_id, Flight.buildSeat.seat_code)
+          this.assingSeat( Passenger.currentPassenger.id, Flight.buildSeat.seat_id)
 
-        // alert("found")
+        
     }
 
 
 }
- static assignSeat( passenger_id, flight_id, seat_code){
-    return fetch (passengersURL,  {
-        method: "PATCH",
+ static assingSeat( passenger_id, seat_id){
+     const newUrl = seatURL+"/"+seat_id
+    
+    fetch (newUrl,  {
+        method: 'PATCH',
         headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
                 },
         body: JSON.stringify( {  
-                    flight_id,
-                    seat_code,
-                    passenger_id
+                    
+                    passenger_id,
+                    seat_id
+
         })        
-    }).then(   
-        message.textContent =  "Seat assigned. Congratulations"
+    }).then(   () => {
+       
+        let flight = Flight.buildSeat.flight_id 
+        let thisFlightData = Flight.allFlights.find(({id}) => id === flight )
+      //  console.log(thisFlightData)
+        message.textContent =  "Congratulations, you travel to "+thisFlightData.planet
+        Seat.changeColor(seat_id)
+        }
     ).catch( 
-        () => alert("Seat not assigned")
+        message.textContent =  "Seat not assigned"
     )       
+ }
+
+ static changeColor(seat_id){
+    // console.log(seat_id)
+      let seat = document.querySelector('[seatid = "'+seat_id+'"]')
+       console.log(seat)
+      seat.className= 'seatdesign red'
+      seat.removeEventListener('click', (e) => { e.preventDefault()
+      Seat.create()
+    })
+   
  }
 
 }

@@ -25,12 +25,18 @@ class Passenger{
                                     flight_id,
                                     seat_code
                         })        
-                    }).then(
-                        () => alert("passenger created")
+                    }).then( () => {
+                        console.log("passenger created")
+                        let flight = Flight.buildSeat.flight_id 
+                        let thisFlightData = Flight.allFlights.find(({id}) => id === flight )
                         
+                        message.textContent =  "Congratulations, you travel to "+thisFlightData.planet
+                        console.log 
+                        Seat.changeColor(Flight.buildSeat.seat_id)
+                    }
                         //call seat class
                     ).catch( 
-                        () => alert("passenger not created")
+                       console.log("passenger not created")
                     )        
            
     }
@@ -57,7 +63,7 @@ class Passenger{
                 Passenger.notFound = false
                 let firstname = document.getElementById('firstname')
                 let lastname = document.getElementById('lastname')
-                       
+                 message.textContent = ''      
                 // firstname.value = Passenger.currentPassenger.firstname
                 // lastname.value = Passenger.currentPassenger.lastname
                 firstname.value = p.firstname

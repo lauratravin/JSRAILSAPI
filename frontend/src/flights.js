@@ -1,6 +1,7 @@
 class Flight{
    static allFlights = []
    static buildSeat = {}
+
    constructor(flight){
        this.id = flight.id
        this.code=  flight.code 
@@ -29,7 +30,7 @@ class Flight{
 
    static renderFlights(){
           for (let f of this.allFlights){
-              
+            // 
               f.renderOneFlight()
           }
    }
@@ -49,6 +50,7 @@ class Flight{
        let year = document.createElement('p')
        let aircraft = document.createElement('p')
        let company = document.createElement('p')
+       let code = document.createElement('p')
 
        divparent.className = "flight-design"
        button.setAttribute("btn-id", this.code)
@@ -57,14 +59,16 @@ class Flight{
        year.innerHTML= `Departure year: <b>${this.date}</b>`
        aircraft.innerHTML= `Aircraft Name: <b>${this.aircraft}</b>`
        company.innerHTML= `Approved by: ${this.company}`
+       code.innerHTML= `Code: ${this.code}`
        button.innerHTML= "Book a seat"
 
-      button.addEventListener('click', () =>  {this.renderSeats()
+      button.addEventListener('click', () =>  {
+        this.renderSeats()
         Flight.buildSeat.flight_id = this.id //capture flight_id
         })
 
        div1.append(destination,year,aircraft)
-       div2.append(company,button)
+       div2.append(company,code,button)
        divparent.append(div1,div2)
        li.appendChild(divparent)
        ul.appendChild(li)
@@ -76,18 +80,21 @@ class Flight{
             seatsPlan.querySelectorAll('*').forEach(n => n.remove());
             seatsSection.classList.remove('hide')
             window.scrollBy(0,900)
-            
+     //       console.log(this.seatsstatus)
+
 
             //   console.log(seatsPlan)
-            for (let i=1 ; i<= this.seats_num ;i++){
+            for (let i of this.seatsstatus){
                 let div = document.createElement('div')   
                 div.className= 'seatdesign'
-                div.textContent = `0${i}`
-                div.setAttribute("seatid", i)
+                div.textContent = i.seat_code
+                div.setAttribute("seatid", i.id)
+                div.setAttribute("seatnum", i.seat_code)
+
                 seatsPlan.append(div)
-                
-                // console.log(this.seatsstatus[i-1].passenger_id)
             }
+
+            
             let cleardiv = document.createElement('div')
             cleardiv.className = 'clearfix' 
 
@@ -100,25 +107,29 @@ class Flight{
             let freeSeats= this.seatsstatus
 
             for (let f of freeSeats){
-                let seatCode = document.querySelector('[seatid = "'+f.seat_code+'"]')
+                let seatCode = document.querySelector('[seatnum = "'+f.seat_code+'"]')
+                
                 if ( f.passenger_id != null ){
               
                     seatCode.className = 'seatdesign red'
                 } else {
                     seatCode.addEventListener('click', (e) => {
-                        this.seatChoosen(seatCode) 
+                        Flight.seatChoosen(seatCode) 
+                        
                         Flight.buildSeat.seat_code = f.seat_code
+                        Flight.buildSeat.seat_id = f.id
+
                     })
                 }
             }
    }
  //this method show the modal for user search or creation and call the search method in Passenger
-   seatChoosen(target){
+   static seatChoosen(target){
       const modal = document.getElementById('modal')
       const close =  document.getElementById('close')
       const search = document.getElementById('search')
       const getTicket = document.getElementById('btn-ticket-confirm')
-      
+      message.textContent =  " "
 
       modal.className="show"
       
@@ -133,20 +144,19 @@ class Flight{
                
 
                 if (passport.value.toUpperCase()){
-                        const term = passport.value
+                        const term = passport.value.toUpperCase()
                         Passenger.searchPassengerByPassport(term)              
                 } else {
                     alert("complete the passport") 
                 }    
         })
-         getTicket.addEventListener('click',(e) => {
-                e.preventDefault();
-                Seat.create()
-
-         }) 
-
+        getTicket.addEventListener('click', (e) => {
+            e.preventDefault();
+            Seat.create()
+     } )         
 
    }
 
+   
 
 }//final class
