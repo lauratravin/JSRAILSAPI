@@ -22557,3 +22557,262 @@ Processing by FlightsController#index as */*
 Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 2.0ms | Allocations: 7292)
 
 
+Started GET "/flights" for 127.0.0.1 at 2021-05-20 17:33:47 -0400
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.7ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.5ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 30]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.2ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 31]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+Completed 200 OK in 74ms (Views: 59.0ms | ActiveRecord: 2.7ms | Allocations: 22770)
+
+
+Started GET "/flights" for 127.0.0.1 at 2021-05-20 17:33:53 -0400
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.3ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 30]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.2ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 31]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.8ms | Allocations: 6710)
+
+
+Started GET "/passengers/?passport=Z111" for 127.0.0.1 at 2021-05-20 17:34:36 -0400
+Processing by PassengersController#index as */*
+  Parameters: {"passport"=>"Z111"}
+  [1m[36mPassenger Load (0.5ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" WHERE "passengers"."passport" = ? LIMIT ?[0m  [["passport", "Z111"], ["LIMIT", 1]]
+  ↳ app/models/passenger.rb:7:in `search'
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 5479)
+
+
+Started GET "/passengers/?passport=Z111" for 127.0.0.1 at 2021-05-20 17:34:38 -0400
+Processing by PassengersController#index as */*
+  Parameters: {"passport"=>"Z111"}
+  [1m[36mPassenger Load (0.1ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" WHERE "passengers"."passport" = ? LIMIT ?[0m  [["passport", "Z111"], ["LIMIT", 1]]
+  ↳ app/models/passenger.rb:7:in `search'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 609)
+
+
+Started GET "/passengers/?passport=U0001" for 127.0.0.1 at 2021-05-20 17:34:45 -0400
+Processing by PassengersController#index as */*
+  Parameters: {"passport"=>"U0001"}
+  [1m[36mPassenger Load (0.1ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" WHERE "passengers"."passport" = ? LIMIT ?[0m  [["passport", "U0001"], ["LIMIT", 1]]
+  ↳ app/models/passenger.rb:7:in `search'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 609)
+
+
+Started PATCH "/seats/68" for 127.0.0.1 at 2021-05-20 17:36:19 -0400
+Processing by SeatsController#update as JSON
+  Parameters: {"passenger_id"=>"15", "seat_id"=>68, "id"=>"68", "seat"=>{"passenger_id"=>"15"}}
+  [1m[36mSeat Load (0.2ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."id" = ? LIMIT ?[0m  [["id", 68], ["LIMIT", 1]]
+  ↳ app/controllers/seats_controller.rb:7:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/seats_controller.rb:9:in `update'
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/seats_controller.rb:9:in `update'
+  [1m[36mSeat Update (0.4ms)[0m  [1m[33mUPDATE "seats" SET "passenger_id" = ?, "updated_at" = ? WHERE "seats"."id" = ?[0m  [["passenger_id", 15], ["updated_at", "2021-05-20 21:36:19.326568"], ["id", 68]]
+  ↳ app/controllers/seats_controller.rb:9:in `update'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/seats_controller.rb:9:in `update'
+Completed 204 No Content in 9ms (ActiveRecord: 1.6ms | Allocations: 3323)
+
+
+Started GET "/flights" for 127.0.0.1 at 2021-05-20 17:36:55 -0400
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 30]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 31]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.7ms | Allocations: 6690)
+
+
+Started GET "/passengers/?passport=U0099" for 127.0.0.1 at 2021-05-20 17:37:11 -0400
+Processing by PassengersController#index as */*
+  Parameters: {"passport"=>"U0099"}
+  [1m[36mPassenger Load (0.1ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" WHERE "passengers"."passport" = ? LIMIT ?[0m  [["passport", "U0099"], ["LIMIT", 1]]
+  ↳ app/models/passenger.rb:7:in `search'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 493)
+
+
+Started POST "/passengers" for 127.0.0.1 at 2021-05-20 17:37:14 -0400
+Processing by PassengersController#create as JSON
+  Parameters: {"firstname"=>"test", "lastname"=>"test", "flight_id"=>31, "seat_code"=>1, "passenger"=>{"firstname"=>"test", "lastname"=>"test"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/passengers_controller.rb:21:in `create'
+  [1m[36mPassenger Create (0.4ms)[0m  [1m[32mINSERT INTO "passengers" ("firstname", "lastname", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["firstname", "test"], ["lastname", "test"], ["created_at", "2021-05-20 21:37:14.806644"], ["updated_at", "2021-05-20 21:37:14.806644"]]
+  ↳ app/controllers/passengers_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/passengers_controller.rb:21:in `create'
+  [1m[36mSeat Load (0.2ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ? AND "seats"."seat_code" = ? LIMIT ?[0m  [["flight_id", 31], ["seat_code", 1], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/passengers_controller.rb:25:in `create'
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:25:in `create'
+  [1m[36mSeat Update (0.3ms)[0m  [1m[33mUPDATE "seats" SET "passenger_id" = ?, "updated_at" = ? WHERE "seats"."id" = ?[0m  [["passenger_id", 23], ["updated_at", "2021-05-20 21:37:14.813328"], ["id", 71]]
+  ↳ app/controllers/passengers_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/passengers_controller.rb:25:in `create'
+Completed 204 No Content in 9ms (ActiveRecord: 2.6ms | Allocations: 4737)
+
+
+Started GET "/flights" for 127.0.0.1 at 2021-05-20 17:37:50 -0400
+Processing by FlightsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 30]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 31]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+Completed 200 OK in 39ms (Views: 34.0ms | ActiveRecord: 2.3ms | Allocations: 19412)
+
+
+Started GET "/flights" for 127.0.0.1 at 2021-05-20 17:37:57 -0400
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 30]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 31]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+Completed 200 OK in 26ms (Views: 25.6ms | ActiveRecord: 0.6ms | Allocations: 6691)
+
+
+Started GET "/passengers/?passport=R0051" for 127.0.0.1 at 2021-05-20 17:38:10 -0400
+Processing by PassengersController#index as */*
+  Parameters: {"passport"=>"R0051"}
+  [1m[36mPassenger Load (0.1ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" WHERE "passengers"."passport" = ? LIMIT ?[0m  [["passport", "R0051"], ["LIMIT", 1]]
+  ↳ app/models/passenger.rb:7:in `search'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 2433)
+
+
+Started POST "/passengers" for 127.0.0.1 at 2021-05-20 17:38:16 -0400
+Processing by PassengersController#create as JSON
+  Parameters: {"firstname"=>"test", "lastname"=>"test", "flight_id"=>33, "seat_code"=>2, "passenger"=>{"firstname"=>"test", "lastname"=>"test"}}
+Started GET "/flights" for 127.0.0.1 at 2021-05-20 17:40:25 -0400
+Processing by FlightsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 30]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 31]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.9ms | Allocations: 7292)
+
+
+Started GET "/flights" for 127.0.0.1 at 2021-05-20 17:41:23 -0400
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 30]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 31]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.2ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.2ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.8ms | Allocations: 6689)
+
+
+Started GET "/flights" for 127.0.0.1 at 2021-05-20 17:43:12 -0400
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 30]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 31]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.7ms | Allocations: 6689)
+
+
+Started GET "/flights" for 127.0.0.1 at 2021-05-20 17:43:57 -0400
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 30]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 31]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.6ms | Allocations: 6691)
+
+
+Started GET "/flights" for 127.0.0.1 at 2021-05-20 17:45:29 -0400
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 30]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 31]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.6ms | Allocations: 6690)
+
+
+Started POST "/passengers" for 127.0.0.1 at 2021-05-20 17:46:03 -0400
+Processing by PassengersController#create as JSON
+  Parameters: {"firstname"=>"Juana", "lastname"=>"De Arco", "passport"=>"J0001", "flight_id"=>31, "seat_code"=>1, "passenger"=>{"firstname"=>"Juana", "lastname"=>"De Arco", "passport"=>"J0001"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/passengers_controller.rb:22:in `create'
+  [1m[36mPassenger Create (0.4ms)[0m  [1m[32mINSERT INTO "passengers" ("firstname", "lastname", "passport", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["firstname", "Juana"], ["lastname", "De Arco"], ["passport", "J0001"], ["created_at", "2021-05-20 21:46:18.693918"], ["updated_at", "2021-05-20 21:46:18.693918"]]
+  ↳ app/controllers/passengers_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/passengers_controller.rb:22:in `create'
+  [1m[36mSeat Load (0.2ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ? AND "seats"."seat_code" = ? LIMIT ?[0m  [["flight_id", 31], ["seat_code", 1], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/passengers_controller.rb:26:in `create'
+  [1m[36mFlight Load (0.1ms)[0m  [1m[34mSELECT "flights".* FROM "flights" WHERE "flights"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/passengers_controller.rb:26:in `create'
+  [1m[36mSeat Update (0.3ms)[0m  [1m[33mUPDATE "seats" SET "passenger_id" = ?, "updated_at" = ? WHERE "seats"."id" = ?[0m  [["passenger_id", 24], ["updated_at", "2021-05-20 21:46:18.701656"], ["id", 71]]
+  ↳ app/controllers/passengers_controller.rb:26:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/passengers_controller.rb:26:in `create'
+Completed 204 No Content in 15133ms (ActiveRecord: 2.8ms | Allocations: 17203)
+
+

@@ -12,7 +12,8 @@ static create(){
 
             if (passport && firstname.value && lastname.value){
 
-              Passenger.createPassenger(firstname.value, lastname.value, passport.value, Flight.buildSeat.flight_id, Flight.buildSeat.seat_code )
+              Passenger.createPassenger(firstname.value, lastname.value, passport, Flight.buildSeat.flight_id, Flight.buildSeat.seat_code )
+           
             } else {
                  message.textContent = "Complete all the fields"
             }

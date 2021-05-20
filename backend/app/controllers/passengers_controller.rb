@@ -17,6 +17,7 @@ class PassengersController < ApplicationController
         @passenger = Passenger.new
         @passenger.firstname= params[:firstname]
         @passenger.lastname= params[:lastname]
+
         @passenger.passport= params[:passport]
         @passenger.save
         @seat = Seat.find_by(flight_id: params[:flight_id],seat_code: params[:seat_code])
