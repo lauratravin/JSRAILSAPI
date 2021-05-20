@@ -10,7 +10,7 @@ class Passenger{
        this.passport= passport
     }
 
-    static createPassenger(firstname, lastname, passport, flight_id, seat_code){
+    static createPassenger(firstname, lastname, passport, seat_id){
        
                     return fetch (passengersURL,  {
                         method: "POST",
@@ -22,8 +22,7 @@ class Passenger{
                                     firstname,
                                     lastname,
                                     passport,
-                                    flight_id,
-                                    seat_code
+                                    seat_id
                         })        
                     }).then( () => {
                         console.log("passenger created")
@@ -31,7 +30,7 @@ class Passenger{
                         let thisFlightData = Flight.allFlights.find(({id}) => id === flight )
                         
                         message.textContent =  "Congratulations, you travel to "+thisFlightData.planet
-                        console.log 
+
                         Seat.changeColor(Flight.buildSeat.seat_id)
                     }
                         //call seat class
