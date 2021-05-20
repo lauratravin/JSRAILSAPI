@@ -22507,3 +22507,36 @@ Processing by FlightsController#index as */*
 Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.6ms | Allocations: 6690)
 
 
+Started GET "/passengers/?passport=U0001" for 127.0.0.1 at 2021-05-20 16:34:49 -0400
+Processing by PassengersController#index as */*
+  Parameters: {"passport"=>"U0001"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/models/passenger.rb:7:in `search'
+  [1m[36mPassenger Load (0.1ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" WHERE "passengers"."passport" = ? LIMIT ?[0m  [["passport", "U0001"], ["LIMIT", 1]]
+  ↳ app/models/passenger.rb:7:in `search'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 1058)
+
+
+Started GET "/flights" for 127.0.0.1 at 2021-05-20 16:35:25 -0400
+Processing by FlightsController#index as */*
+  [1m[36mFlight Load (0.2ms)[0m  [1m[34mSELECT "flights".* FROM "flights"[0m
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 30]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.2ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 31]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.2ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 32]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+  [1m[36mSeat Load (0.1ms)[0m  [1m[34mSELECT "seats".* FROM "seats" WHERE "seats"."flight_id" = ?[0m  [["flight_id", 33]]
+  ↳ app/controllers/flights_controller.rb:7:in `index'
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.7ms | Allocations: 6733)
+
+
+Started GET "/passengers/?passport=U0001" for 127.0.0.1 at 2021-05-20 16:35:40 -0400
+Processing by PassengersController#index as */*
+  Parameters: {"passport"=>"U0001"}
+  [1m[36mPassenger Load (0.1ms)[0m  [1m[34mSELECT "passengers".* FROM "passengers" WHERE "passengers"."passport" = ? LIMIT ?[0m  [["passport", "U0001"], ["LIMIT", 1]]
+  ↳ app/models/passenger.rb:7:in `search'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 592)
+
+

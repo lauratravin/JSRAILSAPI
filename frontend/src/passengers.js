@@ -52,7 +52,7 @@ class Passenger{
          fetch(passengerURL)
          .then( resp => resp.json())
          .then( function(obj) {
-            // console.log(obj)
+             console.log(obj)
              if (obj.data.attributes.firstname &&  obj.data.attributes.firstname){
             //    console.log(obj.data.attributes)
                let  p = new Passenger(obj.data.id, obj.data.attributes.firstname,
