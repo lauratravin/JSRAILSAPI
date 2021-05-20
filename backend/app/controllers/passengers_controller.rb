@@ -1,21 +1,16 @@
 class PassengersController < ApplicationController
 
       def index
-        # passengers = Passenger.all
 
         passenger = Passenger.search(params[:passport])
-   
         render json: PassengerSerializer.new(passenger)
-
-
-
-        # render json: passengers
+       
       end
 
-    def show
-        passenger = Passenger.find_by(passport: params[:passport])
-         render json: passenger
-      end
+    # def show
+    #      passenger = Passenger.find_by(passport: params[:passport])
+    #      render json: passenger
+    #   end
      
     def create
 

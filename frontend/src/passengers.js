@@ -74,7 +74,7 @@ class Passenger{
               document.getElementById('firstname').value = ''
               document.getElementById('lastname').value = ''
               message.textContent =  "Passport not found, complete the fields and get the ticket"
-             console.log("passenger not found in fetch")
+              console.log("passenger not found in fetch")
           
         })
     }

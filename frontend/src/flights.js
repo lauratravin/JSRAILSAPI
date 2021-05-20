@@ -54,6 +54,9 @@ class Flight{
 
        divparent.className = "flight-design"
        button.setAttribute("btn-id", this.code)
+       button.setAttribute("btn-aircraft", this.aircraft)
+       button.setAttribute("btn-planet", this.planet)
+       button.setAttribute("btn-date", this.date)
 
        destination.innerHTML= `Destination: <b>${this.planet}</b>`
        year.innerHTML= `Departure year: <b>${this.date}</b>`
@@ -62,7 +65,12 @@ class Flight{
        code.innerHTML= `Code: ${this.code}`
        button.innerHTML= "Book a seat"
 
-      button.addEventListener('click', () =>  {
+      button.addEventListener('click', (e) =>  {
+        
+       const flightMessage = document.getElementById('flight-message')
+        // console.log(e.target.attributes['btn-planet'].value)
+        flightMessage.textContent= "This is " + e.target.attributes['btn-aircraft'].value + " travelling to " + e.target.attributes['btn-planet'].value + " on " + e.target.attributes['btn-date'].value 
+       
         this.renderSeats()
         Flight.buildSeat.flight_id = this.id //capture flight_id
         })
@@ -79,7 +87,7 @@ class Flight{
             let seatsPlan = document.getElementById('seats-layout')
             seatsPlan.querySelectorAll('*').forEach(n => n.remove());
             seatsSection.classList.remove('hide')
-            window.scrollBy(0,900)
+            window.scrollTo(0,800)
      //       console.log(this.seatsstatus)
 
 
