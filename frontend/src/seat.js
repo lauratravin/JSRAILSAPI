@@ -13,7 +13,7 @@ static create(){
             if (passport && firstname.value && lastname.value){
 
               Passenger.createPassenger(firstname.value, lastname.value, passport, Flight.buildSeat.seat_id )
-           
+              message.textContent = "Processing..."
             } else {
                  message.textContent = "Complete all the fields"
             }
